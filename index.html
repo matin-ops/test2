@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Automation für KMUs | Prozesse automatisieren. Kosten senken. Wachstum skalieren.</title>
+  <meta name="description" content="AI Automation für KMUs: wiederkehrende Prozesse automatisieren, Support entlasten, Sales beschleunigen – ohne IT-Großprojekt." />
+  <meta name="theme-color" content="#0b1220" />
+  <style>
+    :root{
+      --bg:#070b14; --card:#0b1220; --muted:#9aa7bf; --text:#eaf0ff; --line:#18233a;
+      --acc:#6ee7ff; --acc2:#a78bfa; --ok:#34d399; --warn:#fbbf24;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text); background: radial-gradient(1200px 600px at 10% 0%, rgba(110,231,255,.18), transparent 55%),
+                                 radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.18), transparent 60%),
+                                 linear-gradient(180deg, #050813, #070b14 35%, #050813);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1120px; margin:0 auto; padding:24px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.55);
+      border-bottom:1px solid rgba(24,35,58,.65);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,.95), rgba(167,139,250,.95));
+      box-shadow: var(--shadow);
+    }
+    .nav-links{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .nav-links a{color:var(--muted); font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px; border:1px solid rgba(110,231,255,.35);
+      background: linear-gradient(135deg, rgba(110,231,255,.14), rgba(167,139,250,.14));
+      color:var(--text); box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      font-weight:650; cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(110,231,255,.6)}
+    .btn.secondary{
+      background: rgba(11,18,32,.6);
+      border:1px solid rgba(154,167,191,.22);
+      color:var(--text);
+      box-shadow:none;
+    }
+    .hero{padding:46px 0 18px}
+    .grid{display:grid; gap:18px}
+    .hero-grid{grid-template-columns: 1.15fr .85fr; align-items:stretch}
+    @media (max-width: 920px){ .hero-grid{grid-template-columns:1fr} }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(110,231,255,.25);
+      background: rgba(11,18,32,.55);
+      color:var(--muted); font-size:13px;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background: var(--ok); box-shadow:0 0 0 4px rgba(52,211,153,.15)}
+    h1{
+      margin:16px 0 10px; font-size: clamp(30px, 4.2vw, 54px);
+      line-height:1.06; letter-spacing:-.6px;
+    }
+    .sub{
+      color:var(--muted); font-size: 17px; line-height:1.5; max-width: 62ch;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .trust{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px; color:var(--muted); font-size:13px}
+    .pill{display:inline-flex; gap:8px; align-items:center; padding:8px 10px; border-radius:999px; border:1px solid rgba(154,167,191,.18); background: rgba(11,18,32,.45)}
+    .card{
+      background: rgba(11,18,32,.78);
+      border:1px solid rgba(24,35,58,.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card.pad{padding:18px}
+    .panel{padding:18px}
+    .panel h3{margin:0 0 10px}
+    .panel p{margin:0; color:var(--muted); line-height:1.55}
+    .stats{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:14px}
+    @media (max-width: 560px){ .stats{grid-template-columns:1fr} }
+    .stat{
+      padding:14px; border-radius: 14px;
+      border:1px solid rgba(154,167,191,.16);
+      background: rgba(7,11,20,.45);
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{color:var(--muted); font-size:13px}
+    .section{padding:26px 0}
+    .section h2{font-size: 26px; margin:0 0 12px}
+    .section .lead{color:var(--muted); margin:0 0 18px; line-height:1.6}
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    @media (max-width: 920px){ .cards{grid-template-columns:1fr} }
+    .feature{padding:16px}
+    .icon{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(110,231,255,.18), rgba(167,139,250,.18));
+      border:1px solid rgba(110,231,255,.22);
+      margin-bottom:10px;
+    }
+    .feature h3{margin:6px 0 8px; font-size:16px}
+    .feature p{margin:0; color:var(--muted); line-height:1.55; font-size:14px}
+    .split{grid-template-columns: 1fr 1fr; gap:16px}
+    @media (max-width: 920px){ .split{grid-template-columns:1fr} }
+    .list{display:grid; gap:10px; margin-top:12px}
+    .li{display:flex; gap:10px; align-items:flex-start}
+    .check{
+      width:22px; height:22px; border-radius:8px; margin-top:1px;
+      display:grid; place-items:center;
+      background: rgba(52,211,153,.14); border:1px solid rgba(52,211,153,.28);
+      flex:0 0 auto;
+    }
+    .li span{color:var(--muted); line-height:1.5; font-size:14px}
+    .form{
+      padding:18px; display:grid; gap:12px
+    }
+    label{font-size:13px; color:var(--muted)}
+    input, textarea{
+      width:100%; padding:12px 12px; border-radius:12px;
+      border:1px solid rgba(154,167,191,.18);
+      background: rgba(7,11,20,.55);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color: rgba(110,231,255,.55)}
+    textarea{min-height: 110px; resize: vertical}
+    .fineprint{color:var(--muted); font-size:12px; line-height:1.4}
+    .footer{padding:26px 0 40px; color:var(--muted); font-size:13px}
+    .toast{
+      position: fixed; right: 16px; bottom: 16px; max-width: 360px;
+      padding:12px 14px; border-radius:14px;
+      background: rgba(11,18,32,.9);
+      border:1px solid rgba(24,35,58,.9);
+      box-shadow: var(--shadow);
+      display:none;
+    }
+    .toast.show{display:block}
+    .toast b{display:block; margin-bottom:4px}
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>AI Automation <span style="color:var(--muted); font-weight:600">für KMUs</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#usecases">Use-Cases</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt" class="btn">Kostenloser Check</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="container hero" id="top">
+    <div class="grid hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span> In 14 Tagen zu messbarer Entlastung – ohne IT-Großprojekt</div>
+        <h1>AI Automation, die KMUs <span style="background:linear-gradient(135deg,var(--acc),var(--acc2)); -webkit-background-clip:text; background-clip:text; color:transparent;">wirklich</span> Zeit & Geld spart.</h1>
+        <p class="sub">
+          Wir automatisieren wiederkehrende Prozesse in Vertrieb, Backoffice und Support – mit pragmatischen Workflows
+          (z.B. n8n, Zapier, Make, Microsoft/Google, Slack, HubSpot, Stripe). Ergebnis: weniger manuelle Arbeit, weniger Fehler, schnelleres Wachstum.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn" href="#kontakt">Kostenlosen Automations-Check sichern</a>
+          <a class="btn secondary" href="#usecases">Use-Cases ansehen</a>
+        </div>
+
+        <div class="trust">
+          <div class="pill">✅ DSGVO- & Sicherheitsfokus</div>
+          <div class="pill">⚡ Quick Wins statt Monatelang</div>
+          <div class="pill">📈 KPI-basiert (Zeit, Kosten, Conversion)</div>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <h3>Was du bekommst</h3>
+        <p>In 30 Minuten identifizieren wir 3–5 Prozesse, die sich sofort automatisieren lassen – inklusive ROI-Schätzung.</p>
+
+        <div class="stats">
+          <div class="stat"><b>10–40%</b><span>weniger Admin-Aufwand</span></div>
+          <div class="stat"><b>24/7</b><span>Support & Lead-Routing</span></div>
+          <div class="stat"><b>2–6 Wochen</b><span>bis zur skalierbaren Lösung</span></div>
+        </div>
+
+        <div class="list" style="margin-top:14px">
+          <div class="li"><div class="check">✓</div><span>Automations-Roadmap & Priorisierung</span></div>
+          <div class="li"><div class="check">✓</div><span>Umsetzung inkl. Tests, Monitoring & Doku</span></div>
+          <div class="li"><div class="check">✓</div><span>Übergabe + Enablement fürs Team</span></div>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn secondary" href="#ablauf">So läuft’s ab</a>
+          <a class="btn" href="#kontakt">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" id="leistungen">
+      <h2>Leistungen</h2>
+      <p class="lead">Pragmatisch, schnell, messbar. Du bekommst keine Folien – du bekommst laufende Automationen.</p>
+
+      <div class="cards">
+        <div class="card feature">
+          <div class="icon">⚙️</div>
+          <h3>Prozess-Automation</h3>
+          <p>Wiederkehrende Aufgaben eliminieren: Rechnungen, Reminder, Datenpflege, Reporting, Ticket-Routing, Onboarding.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">🤖</div>
+          <h3>AI Assistants</h3>
+          <p>Interne Assistenten für SOPs, Wissenssuche, Angebotsentwürfe, E-Mails, FAQ – mit klaren Guardrails.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">📊</div>
+          <h3>Integrationen & Daten</h3>
+          <p>APIs verbinden, Datenqualität erhöhen, Single-Source-of-Truth: HubSpot, Shopify, Stripe, Google/Microsoft, Slack.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="usecases">
+      <div class="grid split">
+        <div class="card pad">
+          <h2>Typische Use-Cases (KMU)</h2>
+          <p class="lead">Wenn du das wiedererkennst, lohnt sich Automation sofort.</p>
+          <div class="list">
+            <div class="li"><div class="check">✓</div><span><b>Lead → Angebot</b>: Anfrage aus Formular/Inbox → Qualifizierung → CRM → Angebotstext → Follow-ups.</span></div>
+            <div class="li"><div class="check">✓</div><span><b>Rechnungen & Mahnwesen</b>: Status prüfen → Reminder-Sequenz → Eskalation → Task an Team.</span></div>
+            <div class="li"><div class="check">✓</div><span><b>Support Entlastung</b>: Tickets clustern → Antwortvorschläge → SLA-Routing → Knowledge-Base.</span></div>
+            <div class="li"><div class="check">✓</div><span><b>Reporting</b>: Daten ziehen → KPI-Dashboard → Slack/Email Summary wöchentlich.</span></div>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h2>Tool-Stack (Beispiele)</h2>
+          <p class="lead">Wir arbeiten dort, wo du schon bist – und ergänzen nur, was wirklich nötig ist.</p>
+          <div class="cards" style="grid-template-columns:repeat(2,1fr); gap:10px">
+            <div class="stat"><b>n8n / Make</b><span>Workflow Automation</span></div>
+            <div class="stat"><b>Zapier</b><span>Schnelle Integrationen</span></div>
+            <div class="stat"><b>HubSpot</b><span>CRM & Sequences</span></div>
+            <div class="stat"><b>Slack</b><span>Freigaben & Alerts</span></div>
+            <div class="stat"><b>Google/M365</b><span>Docs, Sheets, Mail</span></div>
+            <div class="stat"><b>Stripe/Shopify</b><span>Payments & Commerce</span></div>
+          </div>
+          <p class="fineprint" style="margin-top:12px">
+            Hinweis: Wir setzen auf sichere Konfiguration, Rollen/Permissions, Logging & nachvollziehbare Prompts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ablauf">
+      <h2>Ablauf</h2>
+      <p class="lead">Klarer Prozess. Du weißt jederzeit, was als Nächstes passiert.</p>
+
+      <div class="cards">
+        <div class="card feature">
+          <div class="icon">1</div>
+          <h3>Discovery (30 Min)</h3>
+          <p>Ist-Prozesse, Pain Points, Datenquellen. Wir definieren Erfolg: Zeit, Kosten, Fehlerquote, Conversion.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">2</div>
+          <h3>MVP in 7–14 Tagen</h3>
+          <p>Erster Workflow live: Trigger → Verarbeitung → Freigabe → Logging → Monitoring. Quick Win + Lerneffekte.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">3</div>
+          <h3>Skalierung</h3>
+          <p>Automations-Backlog, weitere Integrationen, SOPs, Qualitätssicherung. Übergabe & Enablement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="grid split">
+        <div class="card pad">
+          <h2>Kostenloser Automations-Check</h2>
+          <p class="lead">Schick kurz deine Situation – du bekommst innerhalb von 24h einen Vorschlag für nächste Schritte.</p>
+          <div class="list">
+            <div class="li"><div class="check">✓</div><span>3–5 Automations-Ideen</span></div>
+            <div class="li"><div class="check">✓</div><span>ROI-Schätzung (Zeit/Kosten)</span></div>
+            <div class="li"><div class="check">✓</div><span>Empfohlener MVP-Scope</span></div>
+          </div>
+          <p class="fineprint" style="margin-top:14px">
+            Kein Spam. Deine Daten bleiben privat. Optional können wir eine NDA nutzen.
+          </p>
+        </div>
+
+        <div class="card form">
+          <form id="leadForm">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Max Mustermann" required />
+            </div>
+            <div>
+              <label for="email">E-Mail</label>
+              <input id="email" name="email" type="email" placeholder="max@firma.de" required />
+            </div>
+            <div>
+              <label for="company">Firma (optional)</label>
+              <input id="company" name="company" placeholder="Muster GmbH" />
+            </div>
+            <div>
+              <label for="msg">Was willst du automatisieren?</label>
+              <textarea id="msg" name="msg" placeholder="z.B. Leads aus Formular → HubSpot → Angebot + Follow-up …" required></textarea>
+            </div>
+
+            <button class="btn" type="submit">Anfrage senden</button>
+            <div class="fineprint">
+              Standardmäßig öffnet sich dein E-Mail-Programm (mailto). Wenn du ein Webhook-Formular willst (z.B. n8n),
+              sag kurz Bescheid – dann baue ich dir die POST-Variante.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+        <div>© <span id="year"></span> AI Automation für KMUs</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap">
+          <a href="#top">Nach oben</a>
+          <a href="javascript:void(0)" onclick="alert('Platzhalter: Impressum/Datenschutz einfügen.');">Impressum</a>
+          <a href="javascript:void(0)" onclick="alert('Platzhalter: Datenschutz einfügen.');">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <b>Fast geschafft!</b>
+    <div id="toastText" style="color:var(--muted)">Dein E-Mail-Client sollte sich geöffnet haben.</div>
+  </div>
+
+  <script>
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        const el = document.querySelector(href);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple form: opens mail client (no backend needed)
+    const form = document.getElementById('leadForm');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toastText');
+
+    function showToast(msg){
+      toastText.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'), 4500);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = encodeURIComponent("Automations-Check Anfrage");
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nE-Mail: ${data.email}\nFirma: ${data.company || "-"}\n\nThema:\n${data.msg}\n`
+      );
+
+      // TODO: Replace with your email address
+      const to = "hello@deine-domain.de";
+
+      // Open mail client
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      showToast("Dein E-Mail-Client sollte sich geöffnet haben. Wenn nicht: E-Mail-Adresse im Code anpassen.");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
