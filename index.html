@@ -395,5 +395,14 @@
       form.reset();
     });
   </script>
+
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://scalykurs.app.n8n.cloud/webhook/6e2e91f4-61a8-4b93-a93e-0e701166b468/chat'
+	});
+</script>
 </body>
 </html>
