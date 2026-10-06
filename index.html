@@ -396,11 +396,13 @@
     });
   </script>
 
-<script 
-    src="https://widget.lookio.app/widget.js" 
-    data-widget-id="5a1OR9U7Mudlgr"
-    data-position="bottom-right"
-    defer>
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://scaly102026.app.n8n.cloud/webhook/7c23a248-3632-4e7a-a078-d9022d461a11/chat'
+	});
 </script>
 </body>
 </html>
